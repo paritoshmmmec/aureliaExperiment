@@ -5,8 +5,8 @@
                   <p class="lead">You can transfer some amount to people and that will be show in right side of the page</p>
                   <div class="col-md-6">
                         <form role="form" submit.delegate="addMoneyToMyAccount()">
-                              <select class="form-control" onclick="alert('Testing')" value.bind="selectedLender">
-                                    <option value="-1" >Please choose oone of lender.</option>
+                              <select class="form-control" click.delegate="onselectedChanges()" value.bind="selectedLender">
+                                    <option value="-1">Please choose oone of lender.</option>
                                     <option repeat.for="lender of Lenders" model.bind="lender">${lender.firstName} ${lender.middleName} ${lender.lastName} </option>
                               </select>
 
@@ -28,9 +28,11 @@
                   </div>
                   <div class="col-md-6">
                         <p class="lead">Amount transfered</p>
-                        <p>
-                              ${Logs}
-                        </p>
+                        <ul>
+                              <li repeat.for="log of aurliaLogs">
+                                    ${log}
+                              </li>
+                        </ul>
                   </div>
             </div>
       </div>
