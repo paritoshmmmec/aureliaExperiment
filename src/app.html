@@ -1,6 +1,37 @@
 <template>
-	<section>
-		<h2>${heading}</h2>
-	</section>
-	
+      <div class="container">
+            <div class="row">
+                  <h2>${heading}</h2>
+                  <p class="lead">You can transfer some amount to people and that will be show in right side of the page</p>
+                  <div class="col-md-6">
+                        <form role="form" submit.delegate="addMoneyToMyAccount()">
+                              <select class="form-control" onclick="alert('Testing')" value.bind="selectedLender">
+                                    <option value="-1" >Please choose oone of lender.</option>
+                                    <option repeat.for="lender of Lenders" model.bind="lender">${lender.firstName} ${lender.middleName} ${lender.lastName} </option>
+                              </select>
+
+                              <div class="form-group">
+                                    <label for="fn">First Name</label>
+                                    <input type="text" value.bind="firstName" class="form-control" id="fn" placeholder="first name">
+                              </div>
+                              <div class="form-group">
+                                    <label for="ln">Last Name</label>
+                                    <input type="text" value.bind="lastName" class="form-control" id="ln" placeholder="last name">
+                              </div>
+                              <div class="form-group">
+                                    <label for="ln">Amount you want to transfer</label>
+                                    <input type="text" value.bind="amountToTransfer" class="form-control" id="ln" placeholder="amount">
+                              </div>
+                              <button type="submit" class="btn btn-info">Submit</button>
+                              <button type="button" class="btn btn-default">Cancel</button>
+                        </form>
+                  </div>
+                  <div class="col-md-6">
+                        <p class="lead">Amount transfered</p>
+                        <p>
+                              ${Logs}
+                        </p>
+                  </div>
+            </div>
+      </div>
 </template>
